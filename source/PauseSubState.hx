@@ -26,6 +26,11 @@ class PauseSubState extends MusicBeatSubstate
 	{
 		super();
 
+                #if mobile 
+                addVirtualPad(UP_DOWN, A);
+                addVirtualPadCamera(false);
+                #end
+
 		pauseMusic = new FlxSound().loadEmbedded(Paths.music('breakfast'), true, true);
 		pauseMusic.volume = 0;
 		pauseMusic.play(false, FlxG.random.int(0, Std.int(pauseMusic.length / 2)));
@@ -88,11 +93,11 @@ class PauseSubState extends MusicBeatSubstate
 		var downP = controls.DOWN_P;
 		var accepted = controls.ACCEPT;
 
-		if (upP)
+		if (#if mobile virtualPad.buttonUp.justPressed #else upP #end)
 		{
 			changeSelection(-1);
 		}
-		if (downP)
+		if (#if mobile virtualPad.buttonDown.justPressed #else downP #end)
 		{
 			changeSelection(1);
 		}
