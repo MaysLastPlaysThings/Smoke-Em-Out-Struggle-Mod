@@ -272,7 +272,7 @@ class StoryMenuState extends MusicBeatState
 
 				if (#if mobile virtualPad.buttonRight.justPressed #else controls.RIGHT_P #end)
 					changeDifficulty(1);
-				if (#if mobile virtualPad.button.justPressed #else controls.LEFT_P #end)
+				if (#if mobile virtualPad.buttonLeft.justPressed #else controls.LEFT_P #end)
 					changeDifficulty(-1);
 			}
 
