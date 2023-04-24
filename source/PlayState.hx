@@ -1931,6 +1931,10 @@ class PlayState extends MusicBeatState
 
 	function endSong():Void
 	{
+                #if mobile
+                mobileControls.visible = false;
+                #end
+
 		canPause = false;
 		FlxG.sound.music.volume = 0;
 		vocals.volume = 0;
